@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研究紹介サイト</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 自身のCSSファイルを追加する場合はここに追記 -->
+    <style>
+        /* カスタムCSSはここに追加 */
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .jumbotron {
+            background-color: #17a2b8;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+        }
+
+        .underline-heading {
+            border-bottom: 2px solid #333;
+            /* アンダーラインのスタイルを設定 */
+            padding-bottom: 5px;
+            /* アンダーラインとテキストの間隔を調整 */
+            margin-bottom: 20px;
+            /* アンダーラインと次の要素の間隔を調整 */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ナビゲーションバー -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">MineLlama</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">ホーム <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">研究内容</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">研究成果</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">お問い合わせ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ヘッダー -->
+    <header class="jumbotron">
+        <div class="container">
+            <h1 class="display-4">MineLlama</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <button class="btn btn-primary btn-block"
+                        onclick="scrollToChapter('abs')">Abstract</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary btn-block"
+                        onclick="scrollToChapter('img')">Images</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary btn-block"
+                        onclick="scrollToChapter('chapter3')">チャプター3へスクロール</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <div class="container">
+        <div class="row md-6">
+            <div class="col-md-12 md-6">
+                <h2 id="abs" class="underline-heading">Abstract</h2>
+                <p> MineLlama is a novel localized Large Language Model (LLM) framework designed to enhance
+                    decision-making
+                    in the sandbox game Minecraft, without relying on external APIs or ex-tensive datasets. MineLlama
+                    operates on a two-tier system: a planning
+                    level that generates a sequence of interdependent subgoals to achieve a given objective, and an
+                    executing level that determines and implements
+                    the immediate actions based on the current state and the subgoals.</p>
+                <img src="./img/relationgraph_generation.png" alt="relationgraph_generation.png" class="img-fluid md-6">
+            </div>
+        </div>
+        <div class="row md-6">
+            <div class="col-md-12 md-6">
+                <h2 id="img" class="underline-heading">Images and Videos</h2>
+                <p>There are the images and videos captured in this research.</p>
+                <div class="row mb-4">
+                    <div class="col-md-6 mb-4">
+                        <img src="./img/ans_bed.png" alt="画像1" class="img-thumbnail">
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <img src="./img/ans_cooked_beef.png" alt="画像2" class="img-thumbnail">
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <img src="./img/ans_crafting_table.png" alt="画像3" class="img-thumbnail">
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <img src="./img/ans_iron_pickaxe.png" alt="画像3" class="img-thumbnail">
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <img src="./img/ans_stick.png" alt="画像3" class="img-thumbnail">
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <img src="./img/ans_stone_pickaxe.png" alt="画像3" class="img-thumbnail">
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <img src="./img/ans_wooden_pickaxe.png" alt="画像3" class="img-thumbnail">
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <img src="./mp4/beef.mp4" alt="gif1" class="img-thumbnail md-4">
+                    </div>
+                    <div class="col-md-6">
+                        <img src="./mp4/stone_pickaxe.mp4" alt="gif2" class="img-thumbnail mb-4">
+                    </div>
+                    <div class="col-md-6">
+                        <img src="./mp4/wooden_pickaxe.mp4" alt="gif3" class="img-thumbnail mb-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <footer class="footer py-3">
+        <div class="container">
+            <span class="text-muted">© 2024 研究紹介サイト</span>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript（必要に応じてjQueryとPopper.jsもインポートする） -->
+    <script>
+        function scrollToChapter(chapterId) {
+            var chapterElement = document.getElementById(chapterId);
+            if (chapterElement) {
+                chapterElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
