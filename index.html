@@ -91,13 +91,12 @@
         <div class="row md-6">
             <div class="col-md-12 md-6">
                 <h2 id="abs" class="underline-heading">Abstract</h2>
-                <p> MineLlama is a novel localized Large Language Model (LLM) framework designed to enhance
-                    decision-making
-                    in the sandbox game Minecraft, without relying on external APIs or ex-tensive datasets. MineLlama
-                    operates on a two-tier system: a planning
-                    level that generates a sequence of interdependent subgoals to achieve a given objective, and an
-                    executing level that determines and implements
-                    the immediate actions based on the current state and the subgoals.</p>
+                <p> MineLlama is　a lightweight framework that utilizes a localized large language model (LLM), Llama2, 
+                    to enhance decision-making in the sandbox game Minecraft, without relying on external APIs.
+                    MineLlama operates a two-layer framework, consisting of planning and executing modules. 
+                    In the planning module, it employs a retrieval-augmented generation (RAG) paired with a query engine that utilizes recipe information from Minecraft to decompose a final goal into a series of interdependent subgoals. 
+                    In the executing module, MineLlama is also constructed using a RAG, with a query engine informed by general knowledge of Minecraft, to guide the agent in choosing the appropriate actions.
+                </p>
                 <img src="./img/relationgraph_generation.png" alt="relationgraph_generation.png" class="img-fluid md-6">
             </div>
         </div>
