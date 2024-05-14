@@ -7,26 +7,55 @@
     <title>研究紹介サイト</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- 自身のCSSファイルを追加する場合はここに追記 -->
     <style>
         /* カスタムCSSはここに追加 */
         body {
             background-color: #f8f9fa;
         }
-
         .jumbotron {
             background-color: #17a2b8;
             color: white;
             padding: 2rem 1rem;
             text-align: center;
+    
         }
-
+        .bg-image {
+            background-image: url('./img/IMG_1546.PNG'); /* 画像のパスを指定してください */
+            background-size: contain; /* 画像をdivに合わせて調整 */
+            background-repeat: no-repeat;
+            background-position: center 50px;
+            height: 350px;
+            /* 他のスタイルも必要に応じて追加できます */
+        }
         .footer {
             background-color: #343a40;
             color: white;
             text-align: center;
         }
-
+        .btn-custom {
+            background-color: #000; /* ボタンの背景色を黒に設定 */
+            color: #fff; /* ボタンの文字色を白に設定 */
+            border: 2px solid #fff; /* ボタンの境界線を白に設定 */
+        }
+        .btn-custom:hover {
+            background-color: #fff; /* ホバー時の背景色を白に設定 */
+            color: #000; /* ホバー時の文字色を黒に設定 */
+            border: 2px solid #000; /* ホバー時の境界線を黒に設定 */
+        }
+        .button-row {
+            margin-top: 20px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .button-container .col-md-4 {
+            margin-bottom: 15px;
+        }
         .underline-heading {
             border-bottom: 2px solid #333;
             /* アンダーラインのスタイルを設定 */
@@ -42,113 +71,101 @@
 
     <!-- ナビゲーションバー -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">MineLlama</a>
+        <a class="navbar-brand ext-center text-white" href="#"><font face="Comic Sans MS">MineLlama</font></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">ホーム <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">研究内容</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">研究成果</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">お問い合わせ</a>
-                </li>
-            </ul>
-        </div>
     </nav>
 
     <!-- ヘッダー -->
-    <header class="jumbotron">
+    <header class="bg-image">
         <div class="container">
-            <h1 class="display-4">MineLlama</h1>
-            <div class="row">
-                <div class="col-md-4">
-                    <button class="btn btn-primary btn-block"
-                        onclick="scrollToChapter('abs')">Abstract</button>
-                </div>
-                <div class="col-md-4">
-                    <button class="btn btn-primary btn-block"
-                        onclick="scrollToChapter('img')">Images</button>
-                </div>
-                <div class="col-md-4">
-                    <button class="btn btn-primary btn-block"
-                        onclick="scrollToChapter('chapter3')">チャプター3へスクロール</button>
-                </div>
-            </div>
+            <h1 class="display-4 text-center"><font face="Comic Sans MS">MineLlama</font></h1>
         </div>
     </header>
 
+    <div class="row md-3 mt-3">
+        <div class="container">
+            <div class="row button-container">
+                <div class="col-md-4">
+                    <button class="btn btn-primary btn-block btn-custom" onclick="scrollToChapter('abs')">Abstract</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary btn-block btn-custom" onclick="scrollToChapter('img')">Images</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary btn-block btn-custom" id="githubButton">
+                        <i class="fab fa-github"></i> GitHub
+                    </button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary btn-block btn-custom" onclick="scrollToChapter('paper')">Paper</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary btn-block btn-custom" onclick="scrollToChapter('team')">Team</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- メインコンテンツ -->
-    <div class="container">
+    <div class="container mt-5">
         <div class="row md-6">
-<!--             <div class="col-md-12 md-6">
+            <div class="col-md-12 md-6">
                 <h2 id="abs" class="underline-heading">Abstract</h2>
-                <p> MineLlama is a lightweight framework that utilizes a localized large language model (LLM), Llama2, 
-                    to enhance decision-making in the sandbox game Minecraft, without relying on external APIs.
-                    MineLlama operates a two-layer framework, consisting of planning and executing modules. 
-                    In the planning module, it employs a retrieval-augmented generation (RAG) paired with a query engine that utilizes recipe information from Minecraft to decompose a final goal into a series of interdependent subgoals. 
-                    In the executing module, MineLlama is also constructed using a RAG, with a query engine informed by general knowledge of Minecraft, to guide the agent in choosing the appropriate actions.
-                </p>
-                <img src="./img/relationgraph_generation.png" alt="relationgraph_generation.png" class="img-fluid md-6" width="500" height="300" >
-            </div> -->
-    　　　　　　　<h2 id="abs" class="underline-heading">Abstract</h2>
-        <div class="col-md-6">
-            <p>
-                MineLlama is a lightweight framework that utilizes a localized large language model (LLM), Llama2,
-                to enhance decision-making in the sandbox game Minecraft, without relying on external APIs.
-                MineLlama operates a two-layer framework, consisting of planning and executing modules.
-                In the planning module, it employs a retrieval-augmented generation (RAG) paired with a query engine that utilizes recipe information from Minecraft to decompose a final goal into a series of interdependent subgoals.
-                In the executing module, MineLlama is also constructed using a RAG, with a query engine informed by general knowledge of Minecraft, to guide the agent in choosing the appropriate actions.
-            </p>
-        </div>
-        <div class="col-md-6">
-            <img src="./img/relationgraph_generation.png" alt="relationgraph_generation.png" class="img-fluid" style="width: 100%; height: auto;">
-        </div>
+            </div>
+            <div class="col-md-6">
+                <p> MineLlama is a novel localized Large Language Model (LLM) framework designed to enhance
+                        decision-making
+                        in the sandbox game Minecraft, without relying on external APIs or ex-tensive datasets.
+                        MineLlama
+                        operates on a two-tier system: a planning
+                        level that generates a sequence of interdependent subgoals to achieve a given objective, and an
+                        executing level that determines and implements
+                        the immediate actions based on the current state and the subgoals.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="./img/relationgraph_generation.png" alt="relationgraph_generation.png"
+                    class="img-fluid md-6">
+            </div>
         </div>
         <div class="row md-6">
             <div class="col-md-12 md-6">
                 <h2 id="img" class="underline-heading">Images and Videos</h2>
                 <p>There are the images and videos captured in this research.</p>
                 <div class="row mb-4">
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-4 mb-4">
                         <img src="./img/ans_bed.png" alt="画像1" class="img-thumbnail">
                     </div>
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-4 mb-4">
                         <img src="./img/ans_cooked_beef.png" alt="画像2" class="img-thumbnail">
                     </div>
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-4 mb-4">
                         <img src="./img/ans_crafting_table.png" alt="画像3" class="img-thumbnail">
                     </div>
-                    <div class="col-md-6 mb-4">
-                        <img src="./img/ans_iron_pickaxe.png" alt="画像3" class="img-thumbnail">
+                    <div class="col-md-4 mb-4">
+                        <img src="./img/ans_iron_pickaxe.png" alt="画像4" class="img-thumbnail">
                     </div>
-                    <div class="col-md-6 mb-4">
-                        <img src="./img/ans_stick.png" alt="画像3" class="img-thumbnail">
+                    <div class="col-md-4 mb-4">
+                        <img src="./img/ans_stick.png" alt="画像5" class="img-thumbnail">
                     </div>
-                    <div class="col-md-6 mb-4">
-                        <img src="./img/ans_stone_pickaxe.png" alt="画像3" class="img-thumbnail">
+                    <div class="col-md-4 mb-4">
+                        <img src="./img/ans_stone_pickaxe.png" alt="画像6" class="img-thumbnail">
                     </div>
-                    <div class="col-md-6 mb-4">
-                        <img src="./img/ans_wooden_pickaxe.png" alt="画像3" class="img-thumbnail">
+                    <div class="col-md-4 mb-4">
+                        <img src="./img/ans_wooden_pickaxe.png" alt="画像7" class="img-thumbnail">
                     </div>
                 </div>
                 <div class="row mb-4">
-                    <div class="col-md-6">
-                        <img src="./mp4/beef.mp4" alt="gif1" class="img-thumbnail md-4">
+                    <div class="col-md-5">
+                        <img src="./gif/beef.gif" alt="画像7" class="img-thumbnail">
                     </div>
-                    <div class="col-md-6">
-                        <img src="./mp4/stone_pickaxe.mp4" alt="gif2" class="img-thumbnail mb-4">
+                    <div class="col-md-5">
+                        <img src="./gif/stone_pickaxe.gif" alt="画像7" class="img-thumbnail">
                     </div>
-                    <div class="col-md-6">
-                        <img src="./mp4/wooden_pickaxe.mp4" alt="gif3" class="img-thumbnail mb-4">
+                    <div class="col-md-5">
+                        <img src="./gif/wooden_pickaxe.gif" alt="画像7" class="img-thumbnail">
                     </div>
                 </div>
             </div>
@@ -158,7 +175,7 @@
     <!-- フッター -->
     <footer class="footer py-3">
         <div class="container">
-            <span class="text-muted">© 2024 研究紹介サイト</span>
+            <span class="text-muted">© 2024 MineLlama</span>
         </div>
     </footer>
 
@@ -170,6 +187,9 @@
                 chapterElement.scrollIntoView({ behavior: 'smooth' });
             }
         }
+        document.getElementById('githubButton').addEventListener('click', function() {
+            window.location.href = 'https://github.com/MineCraftAgents/MineLlama_hp'; // リンク先URL
+        });
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
