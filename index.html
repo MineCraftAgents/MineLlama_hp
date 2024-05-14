@@ -15,47 +15,63 @@
         body {
             background-color: #f8f9fa;
         }
+
         .jumbotron {
             background-color: #17a2b8;
             color: white;
             padding: 2rem 1rem;
             text-align: center;
-    
+
         }
-        .bg-image {
-            background-image: url('./img/IMG_1546.PNG'); /* 画像のパスを指定してください */
-            background-size: contain; /* 画像をdivに合わせて調整 */
-            background-repeat: no-repeat;
-            background-position: center 50px;
-            height: 350px;
-            /* 他のスタイルも必要に応じて追加できます */
+        .header-content {
+            height: 200px; /* 必要に応じて高さを調整 */
         }
+        .logo {
+            max-width: 50px; /* 必要に応じてサイズを調整 */
+            margin-right: 10px; /* 画像とタイトルの間隔を調整 */
+        }
+        .title-font {
+            font-family: 'Comic Sans MS', cursive;
+        }
+
         .footer {
             background-color: #343a40;
             color: white;
             text-align: center;
         }
+
         .btn-custom {
-            background-color: #000; /* ボタンの背景色を黒に設定 */
-            color: #fff; /* ボタンの文字色を白に設定 */
-            border: 2px solid #fff; /* ボタンの境界線を白に設定 */
+            background-color: #000;
+            /* ボタンの背景色を黒に設定 */
+            color: #fff;
+            /* ボタンの文字色を白に設定 */
+            border: 2px solid #fff;
+            /* ボタンの境界線を白に設定 */
         }
+
         .btn-custom:hover {
-            background-color: #fff; /* ホバー時の背景色を白に設定 */
-            color: #000; /* ホバー時の文字色を黒に設定 */
-            border: 2px solid #000; /* ホバー時の境界線を黒に設定 */
+            background-color: #fff;
+            /* ホバー時の背景色を白に設定 */
+            color: #000;
+            /* ホバー時の文字色を黒に設定 */
+            border: 2px solid #000;
+            /* ホバー時の境界線を黒に設定 */
         }
+
         .button-row {
             margin-top: 20px;
         }
+
         .button-container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
         }
+
         .button-container .col-md-4 {
             margin-bottom: 15px;
         }
+
         .underline-heading {
             border-bottom: 2px solid #333;
             /* アンダーラインのスタイルを設定 */
@@ -71,7 +87,9 @@
 
     <!-- ナビゲーションバー -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand ext-center text-white" href="#"><font face="Comic Sans MS">MineLlama</font></a>
+        <a class="navbar-brand ext-center text-white" href="#">
+            <font face="Comic Sans MS">MineLlama</font>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -79,20 +97,26 @@
     </nav>
 
     <!-- ヘッダー -->
-    <header class="bg-image">
-        <div class="container">
-            <h1 class="display-4 text-center"><font face="Comic Sans MS">MineLlama</font></h1>
+    <header class="header-content d-flex flex-column justify-content-center align-items-center text-center">
+        <div class="d-flex align-items-center">
+            <img src="./img/IMG_1546.PNG" alt="MineLlama Logo" class="logo">
+            <h1 class="display-4 title-font mb-0">MineLlama</h1>
         </div>
+        <h2 class="sub-title title-font mt-2">Llama with Retrieval Augmented Generation as A Decision Maker in Minecraft</h2>
     </header>
+
+
 
     <div class="row md-3 mt-3">
         <div class="container">
             <div class="row button-container">
                 <div class="col-md-4">
-                    <button class="btn btn-primary btn-block btn-custom" onclick="scrollToChapter('abs')">Abstract</button>
+                    <button class="btn btn-primary btn-block btn-custom"
+                        onclick="scrollToChapter('abs')">Abstract</button>
                 </div>
                 <div class="col-md-4">
-                    <button class="btn btn-primary btn-block btn-custom" onclick="scrollToChapter('img')">Images</button>
+                    <button class="btn btn-primary btn-block btn-custom"
+                        onclick="scrollToChapter('img')">Images</button>
                 </div>
                 <div class="col-md-4">
                     <button class="btn btn-primary btn-block btn-custom" id="githubButton">
@@ -100,7 +124,8 @@
                     </button>
                 </div>
                 <div class="col-md-4">
-                    <button class="btn btn-primary btn-block btn-custom" onclick="scrollToChapter('paper')">Paper</button>
+                    <button class="btn btn-primary btn-block btn-custom"
+                        onclick="scrollToChapter('paper')">Paper</button>
                 </div>
                 <div class="col-md-4">
                     <button class="btn btn-primary btn-block btn-custom" onclick="scrollToChapter('team')">Team</button>
@@ -117,17 +142,24 @@
             </div>
             <div class="col-md-6">
                 <p> MineLlama is a novel localized Large Language Model (LLM) framework designed to enhance
-                        decision-making
-                        in the sandbox game Minecraft, without relying on external APIs or ex-tensive datasets.
-                        MineLlama
-                        operates on a two-tier system: a planning
-                        level that generates a sequence of interdependent subgoals to achieve a given objective, and an
-                        executing level that determines and implements
-                        the immediate actions based on the current state and the subgoals.</p>
+                    decision-making
+                    in the sandbox game Minecraft, without relying on external APIs or ex-tensive datasets.<br>
+                    MineLlama operates on a two-tier system: 
+                        <ul>
+                            <li>a planning level that generates a sequence of interdependent subgoals to achieve a given objective</li>
+                            <li>an executing level that determines and implements
+                                the immediate actions based on the current state and the subgoals.</li>
+                        </ul></p>
             </div>
             <div class="col-md-6">
-                <img src="./img/relationgraph_generation.png" alt="relationgraph_generation.png"
-                    class="img-fluid md-6">
+                <img src="./img/relationgraph_generation.png" alt="relationgraph_generation.png" class="img-fluid md-6">
+                <div class="card-body text-center">
+                    <p class="card-text">Relationship graph generation</p>
+                </div>
+                <img src="./img/IMG_1550.PNG" alt="executing module" class="img-fluid md-6">
+                <div class="card-body text-center">
+                    <p class="card-text">The framework of executing module</p>
+                </div>
             </div>
         </div>
         <div class="row md-6">
@@ -158,13 +190,13 @@
                     </div>
                 </div>
                 <div class="row mb-4">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                         <img src="./gif/beef.gif" alt="画像7" class="img-thumbnail">
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                         <img src="./gif/stone_pickaxe.gif" alt="画像7" class="img-thumbnail">
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                         <img src="./gif/wooden_pickaxe.gif" alt="画像7" class="img-thumbnail">
                     </div>
                 </div>
@@ -187,7 +219,7 @@
                 chapterElement.scrollIntoView({ behavior: 'smooth' });
             }
         }
-        document.getElementById('githubButton').addEventListener('click', function() {
+        document.getElementById('githubButton').addEventListener('click', function () {
             window.location.href = 'https://github.com/MineCraftAgents/MineLlama_hp'; // リンク先URL
         });
     </script>
