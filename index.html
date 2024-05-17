@@ -4,16 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>研究紹介サイト</title>
+    <title>MineLlama</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- 自身のCSSファイルを追加する場合はここに追記 -->
     <style>
         /* カスタムCSSはここに追加 */
         body {
             background-color: #f8f9fa;
+        }
+
+        figure {
+            padding: 2px;
+            text-align: center;
+        }
+
+        figcaption {
+            font-size: 90%;
         }
 
         .jumbotron {
@@ -86,138 +94,154 @@
             margin-bottom: 20px;
             /* アンダーラインと次の要素の間隔を調整 */
         }
+        
+        .img_decorate{
+            border-radius: 40px 0 40px 0;
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- ナビゲーションバー -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand text-center text-white">
-            <font face="Comic Sans MS">MineLlama</font>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <button class="btn btn-primary btn-custom" onclick="scrollToChapter('abs')">Abstract</button>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-primary btn-custom" onclick="scrollToChapter('img')">Images</button>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-primary btn-custom" onclick="scrollToChapter('team')">Team</button>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- ヘッダー -->
-    <header class="header-content d-flex flex-column justify-content-center align-items-center text-center mt-3"
-        style="padding-top: 70px;">
-        <div class="d-flex align-items-center">
-            <img src="./img/IMG_1546.PNG" alt="MineLlama Logo" class="logo">
-            <h1 class="display-4 title-font mb-0">MineLlama</h1>
-        </div>
-        <h2 class="sub-title title-font mt-2">Llama with Retrieval Augmented Generation as A Decision Maker in Minecraft
-        </h2>
-    </header>
-
-    <div class="row md-3 mt-3">
-        <div class="container">
-            <div class="row button-container">
-                <div class="col-md-4">
-                    <button class="btn btn-primary btn-block btn-custom" id="githubButton">
-                        <i class="fab fa-github"></i> GitHub
-                    </button>
-                </div>
-                <div class="col-md-4">
-                    <button class="btn btn-primary btn-block btn-custom"
-                        onclick="scrollToChapter('paper')">Paper</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- メインコンテンツ -->
-    <div class="container mt-5">
-        <div class="row md-6">
-            <div class="col-md-12 md-6">
-                <h2 id="abs" class="underline-heading">Abstract</h2>
-            </div>
-            <div class="col-md-12">
-                <p> MineLlama is a novel localized Large Language Model (LLM) framework designed to enhance
-                    decision-making
-                    in the sandbox game Minecraft, without relying on external APIs or ex-tensive datasets.<br>
-                    MineLlama operates on a two-tier system:
-                <ul>
-                    <li>a planning level that generates a sequence of interdependent subgoals to achieve a given
-                        objective</li>
-                    <li>an executing level that determines and implements
-                        the immediate actions based on the current state and the subgoals.</li>
+        <!-- ナビゲーションバー -->
+        <nav style="opacity: 0.8;" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <a style="opacity: 1.0;" class="navbar-brand text-center text-white">
+                <font face="Comic Sans MS">MineLlama</font>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li style="opacity: 1.0;" class="nav-item">
+                        <button class="btn btn-primary btn-custom" onclick="scrollToChapter('abs')">Abstract</button>
+                    </li>
+                    <li style="opacity: 1.0;" class="nav-item">
+                        <button class="btn btn-primary btn-custom" onclick="scrollToChapter('img')">Images</button>
+                    </li>
+                    <li style="opacity: 1.0;" class="nav-item">
+                        <button class="btn btn-primary btn-custom" onclick="scrollToChapter('team')">Team</button>
+                    </li>
                 </ul>
-                </p>
             </div>
-            <div class="col-md-6 text-center">
-                <img src="./img/relationgraph_generation.png" alt="relationgraph_generation.png" class="img-fluid text-center md-6" width="365px">
-                <div class="card-body text-center">
-                    <p class="card-text">Relationship graph generation</p>
-                </div>
+        </nav>
+
+
+    <div style="width: 95%; height: 100%; margin: 0 auto;">
+        <!-- ヘッダー -->
+        <header class="header-content d-flex flex-column justify-content-center align-items-center text-center mt-3"
+            style="padding-top: 70px;">
+            <div class="d-flex align-items-center">
+                <img src="./img/IMG_1546.PNG" alt="MineLlama Logo" class="logo">
+                <h1 class="display-4 title-font mb-0">MineLlama</h1>
             </div>
-            <div class="col-md-6 text-center">
-                <img src="./img/IMG_1550.PNG" alt="executing module" class="img-fluid">
-                <div class="card-body text-center">
-                    <p class="card-text">The framework of executing module</p>
+            <h2 class="sub-title title-font mt-2">Llama with Retrieval Augmented Generation <br> as A Decision Maker in
+                Minecraft
+            </h2>
+        </header>
+
+        <div class="row mt-5">
+            <div class="container">
+                <div class="row button-container">
+                    <div class="col-md-4">
+                        <button style="opacity: 0.8;" class="btn btn-primary btn-block btn-custom" id="githubButton">
+                            <i class="fab fa-github"></i> GitHub
+                        </button>
+                    </div>
+                    <div style="opacity: 0.8;" class="col-md-4">
+                        <button class="btn btn-primary btn-block btn-custom"
+                            onclick="scrollToChapter('paper')">Paper</button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row md-6">
-            <div class="col-md-12 md-6">
-                <h2 id="img" class="underline-heading">Images and Videos</h2>
-                <p>There are the images and videos captured in this research.</p>
-                <div class="row mb-4">
-                    <div class="col-md-6 mb-4 text-center">
-                        <img src="./img/ans_cooked_beef.png" alt="画像2" class="img-thumbnail" width="205px">
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <img src="./gif/beef.gif" alt="画像7" class="img-thumbnail" width="400px">
-                    </div>
-                    <div class="col-md-12 text-center">
-                        <p>Case 1 : Cooking a beaf</p>
+
+
+        <!-- メインコンテンツ -->
+        <div style="width: 75%;" class="container mt-5">
+            <div class="row md-6">
+                <div class="col-md-12 md-6">
+                    <h2 id="abs" class="underline-heading">Abstract</h2>
+                </div>
+                <div class="col-md-12">
+                    <p> MineLlama is a novel localized Large Language Model (LLM) framework designed to enhance
+                        decision-making
+                        in the sandbox game Minecraft, without relying on external APIs or ex-tensive datasets.<br>
+                        MineLlama operates on a two-tier system:
+                    <ul>
+                        <li>a planning level that generates a sequence of interdependent subgoals to achieve a given
+                            objective</li>
+                        <li>an executing level that determines and implements
+                            the immediate actions based on the current state and the subgoals.</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img style="height: 4cm;" src="./img/relationgraph_generation.png"
+                        alt="relationgraph_generation.png" class="img-fluid text-center md-6">
+                    <div class="card-body text-center">
+                        <p class="card-text">Relationship graph generation</p>
                     </div>
                 </div>
-                <div class="row mb-4 text-center">
-                    <div class="col-md-6 mb-4 text-center">
-                        <img src="./img/ans_stone_pickaxe.png" alt="画像6" class="img-thumbnail" width="205px">
-                    </div>
-                    <div class="col-md-6 mb-4 text-center">
-                        <img src="./gif/stone_pickaxe.gif" alt="画像7" class="img-thumbnail" width="400px">
-                    </div>
-                    <div class="col-md-12 text-center">
-                        <p>Case 2 : Creating a stone pickaxe</p>
+                <div class="col-md-6 text-center">
+                    <img style="height: 4cm;" src="./img/IMG_1550.PNG" alt="executing module" class="img-fluid">
+                    <div class="card-body text-center">
+                        <p class="card-text">The framework of executing module</p>
                     </div>
                 </div>
-                <div class="row mb-4">
-                    <div class="col-md-6 mb-4 text-center">
-                        <img src="./img/ans_wooden_pickaxe.png" alt="画像7" class="img-thumbnail" width="205px">
+            </div>
+            <div class="row md-8">
+                <div class="col-md-12 md-6">
+                    <h2 id="img" class="underline-heading">Images and Videos</h2>
+                    <p>There are the images and videos captured in this research.</p>
+                    <div class="row mb-4">
+                        <div class="col-md-12 text-center">
+                            <img style="height: 6cm;" src="./img/ans_cooked_beef.png" alt="画像2" class="img-thumbnail">
+                            <img style="height: 6cm;" src="./gif/beef.gif" alt="画像7" class="img-thumbnail">
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <p>Case 1 : Cooking a beaf</p>
+                        </div>
                     </div>
-                    <div class="col-md-6 text-center">
-                        <img src="./gif/wooden_pickaxe.gif" alt="画像7" class="img-thumbnail" width="400px">
+                    <div class="row mb-4 text-center">
+                        <div class="col-md-12 text-center">
+                            <img style="height: 6cm;" src="./img/ans_stone_pickaxe.png" alt="画像6" class="img-thumbnail">
+                            <img style="height: 6cm;" src="./gif/stone_pickaxe.gif" alt="画像7" class="img-thumbnail">
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <p>Case 2 : Creating a stone pickaxe</p>
+                        </div>
                     </div>
-                    <div class="col-md-12 text-center">
-                        <p>Case 3 : Creating a wooden pickaxe</p>
+                    <div class="row mb-4">
+                        <div class="col-md-12 text-center">
+                            <img style="height: 6cm;" src="./img/ans_wooden_pickaxe.png" alt="画像7"
+                                class="img-thumbnail">
+                            <img style="height: 6cm;" src="./gif/wooden_pickaxe.gif" alt="画像7" class="img-thumbnail">
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <p>Case 3 : Creating a wooden pickaxe</p>
+                        </div>
                     </div>
+                </div>
+            </div>
+            <div class="row md-6">
+                <div class="col-md-12 md-6">
+                    <h2 id="abs" class="underline-heading">Team</h2>
+                </div>
+                <div class="col-md-12">
+                    <p> 
+                    <ul>
+                        <li>メンバー１</li>
+                        <li>メンバー２</li>
+                        <li>メンバー３</li>
+                        <li>メンバー４</li>
+                        <li>メンバー５</li>
+                    </ul>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- フッター -->
-    <footer class="footer py-3">
+    <footer style="opacity: 0.9;" class="footer py-3">
         <div class="container">
             <span class="text-muted">© 2024 MineLlama</span>
         </div>
@@ -232,7 +256,7 @@
             }
         }
         document.getElementById('githubButton').addEventListener('click', function () {
-            window.location.href = 'https://github.com/MineCraftAgents/MineLlama_hp'; // リンク先URL
+            window.location.href = 'https://github.com/MineCraftAgents/MineLlama'; // リンク先URL
         });
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
